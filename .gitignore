@@ -1,0 +1,7 @@
+/node_modules
+/.env
+/.vscode
+/pgdata
+/target
+/venv
+__pycache__

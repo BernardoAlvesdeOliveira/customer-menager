@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:latest
+    container_name: barbearia-db
+    restart: always
+    environment:
+      POSTGRES_DB: barbearia
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./apps/backend
+    container_name: barbearia-backend
+    restart: always
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/barbearia
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+    ports:
+      - "8080:8080"
+
+  bot:
+    build: ./apps/bot
+    container_name: barbearia-bot
+    restart: always
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://postgres:1234@database:5432/barbearia
+    volumes:
+      - ./apps/bot:/bot
+
+  frontend:
+    build: ./apps/frontend
+    container_name: barbearia-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:
