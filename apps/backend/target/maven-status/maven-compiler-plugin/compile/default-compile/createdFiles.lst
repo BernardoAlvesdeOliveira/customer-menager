@@ -1,0 +1,5 @@
+com\barbearia\controllers\AppointmentsController.class
+com\barbearia\repositories\AppointmentsRepository.class
+com\barbearia\services\AppointmentsServices.class
+com\barbearia\models\Appointment.class
+com\barbearia\BarbeariaApplication.class
