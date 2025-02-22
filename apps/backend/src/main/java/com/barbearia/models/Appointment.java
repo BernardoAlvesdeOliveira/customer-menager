@@ -32,5 +32,5 @@ public class Appointment {
 
     @NotNull(message = "A data do agendamento é obrigatória.")
     @Future(message = "A data do agendamento deve estar no futuro")
-    private LocalTime hora;
+    private LocalTime datas;
 }

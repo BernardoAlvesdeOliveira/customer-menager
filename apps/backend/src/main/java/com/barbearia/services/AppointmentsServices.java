@@ -34,7 +34,7 @@ public class AppointmentsServices {
     }
 
     public List<Appointment> listByDate(LocalDate datas) {
-        return appointmentsRepository.findByData(datas);
+        return appointmentsRepository.findByDatas(datas);
     }
 
     public Object createAppointments(Appointment appointment) {
