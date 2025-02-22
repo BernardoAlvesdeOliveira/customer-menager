@@ -3,13 +3,15 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://${DB_HOST:database}:${DB_PORT:5432}/${POSTGRES_DB}
-        username: ${POSTGRES_USER}
-        password: ${POSTGRES_PASSWORD}
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${POSTGRES_DATASOURCE_USERNAME}
+        password: ${POSTGRES_DATASOURCE_PASSWORD}
 
     jpa:
         hibernate:
             ddl-auto: update
-        show-sql: true
         properties:
-            hibernate.format_sql: true
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
