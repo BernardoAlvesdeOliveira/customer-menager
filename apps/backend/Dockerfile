@@ -5,5 +5,5 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:17
 WORKDIR /app
-COPY --from=builder /app/target/customer_manager-1.0.0.jar app.jar
+COPY --from=builder /app/target/customer_manager.jar app.jar
 ENTRYPOINT [ "java", "-jar", "app.jar"]

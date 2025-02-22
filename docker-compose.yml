@@ -15,7 +15,9 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   backend:
-    build: ./apps/backend
+    build: 
+      context: ./apps/backend
+      dockerfile: Dockerfile
     container_name: barbearia-backend
     restart: always
     depends_on:
