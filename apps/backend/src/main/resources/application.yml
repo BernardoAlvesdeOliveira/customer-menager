@@ -2,10 +2,15 @@ server:
     port: 8080
 
 spring:
+
     datasource:
-        url: ${SPRING_DATASOURCE_URL}
-        username: ${POSTGRES_DATASOURCE_USERNAME}
-        password: ${POSTGRES_DATASOURCE_PASSWORD}
+        url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/barbearia}
+        username: ${POSTGRES_DATASOURCE_USERNAME:postgres}
+        password: ${POSTGRES_DATASOURCE_PASSWORD:1234}
+
+    flyway:
+        locations: classpath:db/migration
+        baseline-on-migrate: true
 
     jpa:
         hibernate:
