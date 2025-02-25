@@ -30,8 +30,8 @@ public class AppointmentsController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createAppointments(@Valid @RequestBody Appointment appointment) {
-        return ResponseEntity.ok(appointmentsServices.createAppointments(appointment));
+    public ResponseEntity<Object> createAppointment(@Valid @RequestBody Appointment appointment) {
+        return ResponseEntity.ok(appointmentsServices.createAppointment(appointment));
     }
 
     @DeleteMapping("/{id}")
