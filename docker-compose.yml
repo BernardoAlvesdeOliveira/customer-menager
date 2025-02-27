@@ -37,8 +37,10 @@ services:
       - database
     environment:
       DATABASE_URL: postgres://postgres:1234@database:5432/barbearia
+      TELEGRAM_BOT_TOKEN: "7619026238:AAGKtHi-4SkMroiDOegmKEDH-muHPKS7feA"
     volumes:
-      - ./apps/bot:/bot
+      - ./apps/bot:/app
+
 
   frontend:
     build: ./apps/frontend
