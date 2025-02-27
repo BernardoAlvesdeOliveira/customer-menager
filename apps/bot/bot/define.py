@@ -1,4 +1,4 @@
-import schedule
+import schedule # type: ignore
 import time
 from bot.database import get_appointments
 from bot.main import send_message

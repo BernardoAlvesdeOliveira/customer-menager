@@ -1,6 +1,6 @@
-from telegram import Bot
-from telegram.ext import Updater
-from bot.commands import register_handlers
+from telegram import Bot # type: ignore
+from telegram.ext import Updater # type: ignore
+from commands import register_handlers
 import os
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
