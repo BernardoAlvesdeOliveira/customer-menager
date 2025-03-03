@@ -12,4 +12,4 @@ Este bot gerencia os agendamentos da barbearia e envia notificações diárias a
 
 2. Execute o bot com Docker:
 ```sh
-docker-compose up -d bot
+docker-compose up bot
