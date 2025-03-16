@@ -1,5 +1,6 @@
 C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\BarbeariaApplication.java
 C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\controllers\AppointmentsController.java
+C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\dto\AppointmentsDTO.java
 C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\models\Appointment.java
 C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\repositories\AppointmentsRepository.java
 C:\Users\balve\Desktop\projetos\customer_menager\apps\backend\src\main\java\com\barbearia\services\AppointmentsServices.java

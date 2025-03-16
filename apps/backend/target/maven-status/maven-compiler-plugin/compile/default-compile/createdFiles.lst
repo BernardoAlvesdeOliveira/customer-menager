@@ -3,4 +3,5 @@ com\barbearia\BarbeariaApplication.class
 com\barbearia\controllers\AppointmentsController.class
 com\cors\config\CorsConfig.class
 com\barbearia\services\AppointmentsServices.class
+com\barbearia\dto\AppointmentsDTO.class
 com\barbearia\models\Appointment.class
