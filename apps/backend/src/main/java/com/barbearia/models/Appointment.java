@@ -11,7 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -35,7 +35,7 @@ public class Appointment {
     private String cliente;
 
     @NotNull(message = "A data do agendamento é obrigatória.")
-    @Future(message = "A data do agendamento deve estar no futuro")
+    @FutureOrPresent(message = "A data do agendamento deve estar no futuro")
     @Column(name = "datas")
     private LocalDate datas;
 
