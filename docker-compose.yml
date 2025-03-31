@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   database:
     image: postgres:15.0
@@ -15,7 +14,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - barbearia-network
-
+  
   backend:
     build: 
       context: ./apps/backend
@@ -32,7 +31,7 @@ services:
       - "8080:8080"
     networks:
       - barbearia-network
-
+  
   bot:
     build: ./apps/bot
     container_name: barbearia-bot
@@ -46,7 +45,7 @@ services:
       - ./apps/bot:/app
     networks:
       - barbearia-network
-
+  
   frontend:
     build:
       context: ./apps/frontend
@@ -57,12 +56,15 @@ services:
       - backend
     ports:
       - "5173:5173"
+    environment:
+      # Adicione variáveis de ambiente que o frontend precisa
+      # Especifique a URL do backend explicitamente
+      VITE_API_URL: http://barbearia-backend:8080
     networks:
       - barbearia-network
 
 volumes:
   pgdata:
-
 networks:
   barbearia-network:
     driver: bridge

@@ -37,8 +37,4 @@ public class AppointmentsServices {
         return appointmentsRepository.findByDatas(datas);
     }
 
-    public Object createAppointments(Appointment appointment) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createAppointments'");
-    }
 }
