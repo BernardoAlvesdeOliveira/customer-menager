@@ -1,108 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Agendamento</title>
-    <link rel="stylesheet" href="src/assets/css/styles.css">
-</head>
-<body>
-    <h1>Formulário de Agendamento</h1>
-    
-    <div id="error-message"></div>
-    
-    <form id="agendamentoForm">
-        <div class="form-group">
-            <label for="cliente">Cliente:</label>
-            <input type="text" id="cliente" name="cliente" value="Murilo" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="datas">Data:</label>
-            <input type="date" id="datas" name="datas" value="2025-05-22" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" name="hora" value="16:15" required>
-        </div>
-        
-        <button type="submit">Enviar</button>
-        <div id="loading">Enviando dados...</div>
-    </form>
-    
-    <div id="resultado">
-        <h3>Resposta do servidor:</h3>
-        <pre id="resposta"></pre>
-    </div>
-    
-    <script>
-        // Verificar se a página carregou
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Página carregada com sucesso!');
-            document.getElementById('error-message').textContent = '';
-            document.getElementById('error-message').style.display = 'none';
-        });
-        
-        document.getElementById('agendamentoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Exibir mensagem de carregamento
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('error-message').style.display = 'none';
-            
-            try {
-                // Capturar os dados do formulário
-                const cliente = document.getElementById('cliente').value;
-                const datas = document.getElementById('datas').value;
-                const hora = document.getElementById('hora').value;
-                const apiUrl = 'http://localhost:8080/api/agendamentos'; // CORRIGIDO AQUI
-                
-                // Criar o objeto JSON
-                const dados = {
-                    cliente: cliente,
-                    datas: datas,
-                    hora: hora
-                };
-                
-                console.log('Enviando dados:', dados);
-                console.log('URL da API:', apiUrl);
-                
-                // Enviar os dados para o backend via fetch API
-                fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dados)
-                })
-                .then(response => {
-                    console.log('Status da resposta:', response.status);
-                    if (!response.ok) {
-                        throw new Error('Erro na requisição: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Exibir a resposta
-                    console.log('Resposta recebida:', data);
-                    document.getElementById('resposta').textContent = JSON.stringify(data, null, 2);
-                    document.getElementById('resultado').style.display = 'block';
-                    document.getElementById('loading').style.display = 'none';
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    document.getElementById('error-message').textContent = 'Erro: ' + error.message;
-                    document.getElementById('error-message').style.display = 'block';
-                    document.getElementById('loading').style.display = 'none';
-                });
-            } catch (err) {
-                console.error('Erro inesperado:', err);
-                document.getElementById('error-message').textContent = 'Erro inesperado: ' + err.message;
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('loading').style.display = 'none';
-            }
-        });
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamentos - Barbearia</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/assets/js/main.jsx"></script>
+  </body>
 </html>
